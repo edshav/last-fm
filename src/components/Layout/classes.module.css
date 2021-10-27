@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  border-bottom: solid 1px black;
+}
+
+.main {
+  padding: 24px 0;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: black;
+  color: gold;
+}

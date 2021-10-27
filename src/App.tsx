@@ -1,4 +1,4 @@
-import { Layout } from 'components/Layout';
+import { Layout } from 'components/Layout/Layout';
 import { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { routes } from 'routes';
@@ -6,8 +6,8 @@ import './index.css';
 
 function App() {
   return (
-    <Switch>
-      <Layout>
+    <Layout>
+      <Switch>
         {routes.map(({ path, Component }) => (
           <Route
             exact
@@ -20,8 +20,8 @@ function App() {
           />
         ))}
         <Redirect to="/404" />
-      </Layout>
-    </Switch>
+      </Switch>
+    </Layout>
   );
 }
 

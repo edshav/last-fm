@@ -1,0 +1,31 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+}
+
+.title {
+  font-size: 2rem;
+  line-height: 2.4rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: black;
+}
+
+.link {
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: goldenrod;
+  font-weight: bold;
+  transition: color 0.2s ease-out;
+}
+
+.link:hover {
+  color: gold;
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+}
