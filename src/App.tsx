@@ -10,6 +10,7 @@ function App() {
       <Switch>
         {routes.map(({ path, Component }) => (
           <Route
+            key={path}
             exact
             path={path}
             render={() => (
