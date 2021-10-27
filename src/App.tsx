@@ -2,6 +2,8 @@ import { Layout } from 'components/Layout';
 import { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { routes } from 'routes';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/700.css';
 
 function App() {
   return (
