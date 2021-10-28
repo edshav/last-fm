@@ -5,14 +5,21 @@ type TrackImage<T extends ImageSize> = {
   size: T;
 };
 
-type TracksMeta = {
-  page: string; // "1",
-  perPage: string; // "50",
-  totalPages: string; // "580674",
-  total: string; // "29033686"
+type TracksMetaDocument = {
+  page?: string | null; // "1",
+  perPage?: string | null; // "50",
+  totalPages?: string | null; // "580674",
+  total?: string | null; // "29033686"
 };
 
-export type Track = {
+type TracksMeta = {
+  page: number | null;
+  perPage: number | null;
+  totalPages: number | null;
+  total: number | null;
+};
+
+export type TrackDocument = {
   name?: string;
   duration?: string;
   playcount?: string;
@@ -36,9 +43,24 @@ export type Track = {
   ];
 };
 
+export type Track = {
+  name: string | null;
+  artist: {
+    name: string | null;
+    url: string | null;
+  };
+  image: string | null;
+};
+
+export type ChartGetTopTracksDocument = {
+  tracks?: {
+    track?: TrackDocument[];
+    '@attr'?: TracksMetaDocument;
+  };
+};
 export type ChartGetTopTracksResult = {
   tracks?: Track[];
-  '@attr': TracksMeta;
+  meta?: TracksMeta;
 };
 export type ChartGetTopTracksArg = {
   page?: number; // defaults to 1

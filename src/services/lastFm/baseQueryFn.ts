@@ -2,7 +2,15 @@ import { BaseQueryFn } from '@reduxjs/toolkit/query/react';
 import { AxiosRequestConfig, AxiosError } from 'axios';
 import { axiosLastFmInstance } from './axiosLastFmInstance';
 
-export const axiosBaseQuery =
+export type LastFmError = {
+  status?: number;
+  data?: {
+    error?: number;
+    message?: string;
+  };
+};
+
+export const baseQueryFn =
   (): BaseQueryFn<
     {
       url?: string;
@@ -11,13 +19,7 @@ export const axiosBaseQuery =
       params?: AxiosRequestConfig['params'];
     },
     unknown,
-    {
-      status?: number;
-      data?: {
-        error?: number;
-        message?: string;
-      };
-    }
+    LastFmError
   > =>
   async ({ url, method, data, params }) => {
     try {
