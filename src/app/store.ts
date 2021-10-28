@@ -5,6 +5,8 @@ export const store = configureStore({
   reducer: {
     [emptySplitLastFmApi.reducerPath]: emptySplitLastFmApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(emptySplitLastFmApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;
