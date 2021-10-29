@@ -1,10 +1,5 @@
 import axios from 'axios';
-
-const baseURL = process.env.REACT_APP_API_BASE_URL;
-
-if (typeof baseURL === 'undefined') {
-  throw new Error('API_BASE_URL is not provided');
-}
+import { baseURL } from 'utils/constants';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 
