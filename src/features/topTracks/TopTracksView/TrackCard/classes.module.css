@@ -8,6 +8,8 @@
   background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
   overflow: hidden;
   width: 345px;
+  display: flex;
+  flex-direction: column;
 }
 
 .header {
@@ -30,6 +32,7 @@
 .footer {
   padding: 1rem;
   text-align: center;
+  margin-top: auto;
 }
 
 .name {

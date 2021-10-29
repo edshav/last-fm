@@ -1,17 +1,16 @@
 import { emptySplitLastFmApi } from 'services/lastFm';
 import { parseInteger } from 'utils/parseInteger';
-import { ChartGetTopTracksArg, ChartGetTopTracksDocument, ChartGetTopTracksResult } from './types';
+import { ChartGetTopTracksArg, ChartGetTopTracksDocument, ChartGetTopTracksResult } from '../types';
 
 const topTracksApi = emptySplitLastFmApi.injectEndpoints({
   endpoints: (build) => ({
     chartGetTopTracks: build.query<ChartGetTopTracksResult, ChartGetTopTracksArg>({
-      query: ({ page, limit }) => ({
+      query: ({ page = 1, limit = 18 }) => ({
         method: 'GET',
         params: { method: 'chart.gettoptracks', page, limit },
       }),
 
       transformResponse: (baseQueryReturnValue: ChartGetTopTracksDocument) => {
-        console.log(baseQueryReturnValue);
         if (!baseQueryReturnValue) return { tracks: [] };
         const tracksDocument = baseQueryReturnValue?.tracks?.track;
 
