@@ -1,14 +1,11 @@
 import { useLocation } from 'react-router-dom';
-import { parseInteger } from 'utils/parseInteger';
 
-type HookReturns = {
-  currentPage: number | undefined;
-};
+type HookReturns = Record<string, string>;
 
-export const useSearchParams = (): HookReturns => {
+export const useSearchParams = (paramNames: string[]): HookReturns => {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
-  const currentPage = parseInteger(params.get('page')) ?? undefined;
-
-  return { currentPage };
+  return paramNames.reduce((acc, paramName) => {
+    return Object.assign(acc, { [paramName]: params.get(paramName) });
+  }, {});
 };

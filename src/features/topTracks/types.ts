@@ -44,7 +44,7 @@ export type TrackDocument = {
 };
 
 export type Track = {
-  name: string | null;
+  title: string | null;
   artist: {
     name: string | null;
     url: string | null;

@@ -17,7 +17,7 @@ const topTracksApi = emptySplitLastFmApi.injectEndpoints({
         const metaDocument = baseQueryReturnValue.tracks?.['@attr'];
 
         const tracks = tracksDocument?.map(({ name, artist, image }) => ({
-          name: name ?? null,
+          title: name ?? null,
           artist: {
             name: artist?.name ?? null,
             url: artist?.url ?? null,

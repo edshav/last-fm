@@ -2,13 +2,17 @@ import { FC } from 'react';
 import { parseError } from 'utils/parseError';
 import Pagination from 'components/Pagination/Pagination';
 import { useSearchParams } from 'hooks/useSearchParams';
+import { parseInteger } from 'utils/parseInteger';
+
 import { useChartGetTopTracksQuery } from '../api/topTracksApi';
 import { TrackCard } from './TrackCard/TrackCard';
 import classes from './classes.module.css';
 
 export const TopTracksView: FC = () => {
-  const { currentPage } = useSearchParams();
-  const { data, isLoading, isError, error } = useChartGetTopTracksQuery({ page: currentPage });
+  const { page: currentPage } = useSearchParams(['page']);
+  const { data, isLoading, isError, error } = useChartGetTopTracksQuery({
+    page: parseInteger(currentPage) ?? undefined,
+  });
 
   const tracks = data?.tracks;
   const { page, totalPages } = data?.meta ?? {};
@@ -24,10 +28,10 @@ export const TopTracksView: FC = () => {
   return (
     <>
       <div className={classes.container}>
-        {tracks.map(({ artist, image, name }, index) => (
+        {tracks.map(({ artist, image, title }, index) => (
           <TrackCard
             key={index}
-            trackTitle={name}
+            title={title}
             artistName={artist.name}
             href={artist.url}
             imageSrc={image}
