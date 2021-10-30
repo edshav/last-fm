@@ -10,12 +10,12 @@ const artistApi = emptySplitLastFmApi.injectEndpoints({
         params: { method: 'artist.getinfo', artist: artistName },
       }),
 
-      transformResponse: (baseQueryReturnValue: ArtistGetInfoDocument) => {
-        if (!baseQueryReturnValue) return { artist: null };
-        const artistDocument = baseQueryReturnValue.artist;
+      transformResponse: (baseQueryReturnValue: ArtistGetInfoDocument | undefined) => {
+        const artistDocument = baseQueryReturnValue?.artist;
+        if (!artistDocument?.name) return { artist: null };
 
         const artist = {
-          name: artistDocument.name ?? null,
+          name: artistDocument.name,
           image: artistDocument.image?.[4]['#text'] ?? null,
           tags: massageTags(artistDocument.tags?.tag),
           bio: {
@@ -31,4 +31,4 @@ const artistApi = emptySplitLastFmApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useArtistGetInfoQuery } = artistApi;
+export const { useArtistGetInfoQuery, usePrefetch } = artistApi;

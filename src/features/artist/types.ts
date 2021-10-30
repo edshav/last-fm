@@ -50,7 +50,7 @@ export type ArtistDocument = {
 };
 
 export type Artist = {
-  name: string | null;
+  name: string;
   image: string | null;
   tags: Tag[];
   bio: Bio;

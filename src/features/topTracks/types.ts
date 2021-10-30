@@ -20,7 +20,7 @@ type TracksMeta = {
 };
 
 export type TrackDocument = {
-  name?: string;
+  name: string;
   duration?: string;
   playcount?: string;
   listeners?: string;
@@ -30,9 +30,9 @@ export type TrackDocument = {
     '#text'?: string;
     fulltrack?: string;
   };
-  artist?: {
-    name?: string;
-    mbid?: string;
+  artist: {
+    name: string;
+    mbid: string;
     url?: string;
   };
   image?: [
@@ -44,9 +44,9 @@ export type TrackDocument = {
 };
 
 export type Track = {
-  title: string | null;
+  title: string;
   artist: {
-    name: string | null;
+    name: string;
     url: string | null;
   };
   image: string | null;

@@ -10,16 +10,16 @@ const topTracksApi = emptySplitLastFmApi.injectEndpoints({
         params: { method: 'chart.gettoptracks', page, limit },
       }),
 
-      transformResponse: (baseQueryReturnValue: ChartGetTopTracksDocument) => {
+      transformResponse: (baseQueryReturnValue: ChartGetTopTracksDocument | undefined) => {
         if (!baseQueryReturnValue) return { tracks: [] };
         const tracksDocument = baseQueryReturnValue?.tracks?.track;
 
         const metaDocument = baseQueryReturnValue.tracks?.['@attr'];
 
         const tracks = tracksDocument?.map(({ name, artist, image }) => ({
-          title: name ?? null,
+          title: name,
           artist: {
-            name: artist?.name ?? null,
+            name: artist.name,
             url: artist?.url ?? null,
           },
           image: image?.[3]['#text'] ?? null,
