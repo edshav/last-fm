@@ -1,6 +1,7 @@
 import { emptySplitLastFmApi } from 'services/lastFm';
 import { ArtistGetInfoArg, ArtistGetInfoDocument, ArtistGetInfoResult } from '../types';
-import { massageTags } from './massageTags';
+import { massageImages } from './utils/massageImages';
+import { massageTags } from './utils/massageTags';
 
 const artistApi = emptySplitLastFmApi.injectEndpoints({
   endpoints: (build) => ({
@@ -16,7 +17,7 @@ const artistApi = emptySplitLastFmApi.injectEndpoints({
 
         const artist = {
           name: artistDocument.name,
-          image: artistDocument.image?.[4]['#text'] ?? null,
+          imageSet: massageImages(artistDocument.image),
           tags: massageTags(artistDocument.tags?.tag),
           bio: artistDocument.bio?.content ?? null,
         };

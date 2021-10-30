@@ -11,7 +11,7 @@ type Props = {
   children: ReactNode;
 };
 
-const Loader: FC<Props> = ({ children, isLoading, isError, error }) => {
+export const Loader: FC<Props> = ({ children, isLoading, isError, error }) => {
   const errorMessage = parseError(error);
 
   if (isLoading)
@@ -27,5 +27,3 @@ const Loader: FC<Props> = ({ children, isLoading, isError, error }) => {
 
   return <>{children}</>;
 };
-
-export default Loader;

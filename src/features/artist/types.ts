@@ -1,6 +1,6 @@
-type ImageSize = 'small' | 'medium' | 'large' | 'extralarge' | 'mega';
+export type ArtistImageSize = 'small' | 'medium' | 'large' | 'extralarge' | 'mega';
 
-type TrackImage<T extends ImageSize> = {
+type TrackImage<T extends ArtistImageSize> = {
   '#text'?: string;
   size: T;
 };
@@ -15,17 +15,19 @@ export type Tag = {
   url: string;
 };
 
+export type ArtistImagesDocument = [
+  TrackImage<'small'>,
+  TrackImage<'medium'>,
+  TrackImage<'large'>,
+  TrackImage<'extralarge'>,
+  TrackImage<'mega'>
+];
+
 export type ArtistDocument = {
   name?: string;
   mbid?: string;
   url?: string;
-  image?: [
-    TrackImage<'small'>,
-    TrackImage<'medium'>,
-    TrackImage<'large'>,
-    TrackImage<'extralarge'>,
-    TrackImage<'mega'>
-  ];
+  image: ArtistImagesDocument;
   streamable?: string; // '0'
   ontour?: string; // '0'
   stats?: {
@@ -46,7 +48,7 @@ export type ArtistDocument = {
 
 export type Artist = {
   name: string;
-  image: string | null;
+  imageSet: Record<ArtistImageSize, string>;
   tags: Tag[];
   bio: string | null;
 };

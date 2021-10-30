@@ -1,8 +1,8 @@
 import { FC } from 'react-router/node_modules/@types/react';
-import Footer from 'components/Layout/Footer/Footer';
-import Header from 'components/Layout/Header/Header';
+import { Footer } from 'components/Layout/Footer/Footer';
+import { Header } from 'components/Layout/Header/Header';
+import { Container } from './Container/Container';
 import classes from './classes.module.css';
-import Container from './Container/Container';
 
 const title = 'Last FM Artists';
 const footerText = 'TIT';

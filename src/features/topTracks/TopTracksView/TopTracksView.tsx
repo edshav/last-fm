@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import Pagination from 'components/Pagination/Pagination';
-import Loader from 'components/Loader/Loader';
+import { Pagination } from 'components/Pagination/Pagination';
+import { Loader } from 'components/Loader/Loader';
 import { useSearchParams } from 'hooks/useSearchParams';
 import { parseInteger } from 'utils/parseInteger';
 import { useChartGetTopTracksQuery } from '../api/topTracksApi';

@@ -1,16 +1,3 @@
 .name {
   font-size: 3rem;
 }
-
-.lineClamp {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.img {
-  float: left;
-  margin-right: 1.6rem;
-  margin-bottom: 1.6rem;
-}

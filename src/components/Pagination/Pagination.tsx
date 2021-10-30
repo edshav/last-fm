@@ -1,14 +1,14 @@
 import { FC } from 'react';
 import { usePagination } from './usePagination';
 import classes from './classes.module.css';
-import PaginationArrow from './PaginationArrow';
+import { PaginationArrow } from './PaginationArrow';
 
 type Props = {
   page: number;
   totalPages: number;
 };
 
-const Pagination: FC<Props> = ({ page, totalPages }) => {
+export const Pagination: FC<Props> = ({ page, totalPages }) => {
   const hRefs = usePagination({ page, totalPages });
 
   if (!hRefs) return null;
@@ -22,5 +22,3 @@ const Pagination: FC<Props> = ({ page, totalPages }) => {
     </div>
   );
 };
-
-export default Pagination;

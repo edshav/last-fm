@@ -6,9 +6,7 @@ type Props = DOMAttributes<HTMLDivElement> & {
   className?: string;
 };
 
-const DangerouslySetInnerHTML: FC<Props> = ({ dirtyHtml, ...restProps }) => {
+export const DangerouslySetInnerHTML: FC<Props> = ({ dirtyHtml, ...restProps }) => {
   const cleanHtml = sanitizeHtml(dirtyHtml);
   return <div dangerouslySetInnerHTML={{ __html: cleanHtml }} {...restProps}></div>;
 };
-
-export default DangerouslySetInnerHTML;

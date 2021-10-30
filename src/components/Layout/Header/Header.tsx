@@ -10,7 +10,7 @@ type Props = {
   title: string;
 };
 
-const Header: FC<Props> = ({ sections, title }) => {
+export const Header: FC<Props> = ({ sections, title }) => {
   return (
     <div className={classes.container}>
       <h1 className={classes.title}>
@@ -26,5 +26,3 @@ const Header: FC<Props> = ({ sections, title }) => {
     </div>
   );
 };
-
-export default Header;

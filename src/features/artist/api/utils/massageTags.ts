@@ -1,4 +1,4 @@
-import { Tag, TagDocument } from '../types';
+import { Tag, TagDocument } from '../../types';
 
 export const massageTags = (tagsDocument: TagDocument[] | undefined): Tag[] => {
   if (!tagsDocument) return [];
