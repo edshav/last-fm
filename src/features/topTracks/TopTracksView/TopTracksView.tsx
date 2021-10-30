@@ -22,13 +22,13 @@ export const TopTracksView: FC = () => {
   return (
     <Loader isLoading={isLoading} isError={isError} error={error}>
       <ul className={classes.container}>
-        {tracks?.map(({ artist, image, title }, index) => (
+        {tracks?.map(({ artist, imageSet, title }, index) => (
           <TrackCard
             key={index}
             title={title}
             artistName={artist.name}
             href={artist.url}
-            imageSrc={image}
+            imageSet={imageSet}
           />
         )) ?? null}
       </ul>

@@ -1,7 +1,7 @@
-type ImageSize = 'small' | 'medium' | 'large' | 'extralarge';
+export type TracksImageSize = 'small' | 'medium' | 'large' | 'extralarge';
 
-type TrackImage<T extends ImageSize> = {
-  '#text'?: string;
+type TrackImageDocument<T extends TracksImageSize> = {
+  '#text': string;
   size: T;
 };
 
@@ -35,11 +35,11 @@ export type TrackDocument = {
     mbid: string;
     url?: string;
   };
-  image?: [
-    TrackImage<'small'>,
-    TrackImage<'medium'>,
-    TrackImage<'large'>,
-    TrackImage<'extralarge'>
+  image: [
+    TrackImageDocument<'small'>,
+    TrackImageDocument<'medium'>,
+    TrackImageDocument<'large'>,
+    TrackImageDocument<'extralarge'>
   ];
 };
 
@@ -49,7 +49,7 @@ export type Track = {
     name: string;
     url: string | null;
   };
-  image: string | null;
+  imageSet: Record<TracksImageSize, string>;
 };
 
 export type ChartGetTopTracksDocument = {

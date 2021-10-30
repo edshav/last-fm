@@ -1,6 +1,7 @@
 import { emptySplitLastFmApi } from 'services/lastFm';
 import { parseInteger } from 'utils/parseInteger';
 import { ChartGetTopTracksArg, ChartGetTopTracksDocument, ChartGetTopTracksResult } from '../types';
+import { massageTracks } from './utils/massageTracks';
 
 const topTracksApi = emptySplitLastFmApi.injectEndpoints({
   endpoints: (build) => ({
@@ -16,14 +17,7 @@ const topTracksApi = emptySplitLastFmApi.injectEndpoints({
 
         const metaDocument = baseQueryReturnValue.tracks?.['@attr'];
 
-        const tracks = tracksDocument?.map(({ name, artist, image }) => ({
-          title: name,
-          artist: {
-            name: artist.name,
-            url: artist?.url ?? null,
-          },
-          image: image?.[3]['#text'] ?? null,
-        }));
+        const tracks = massageTracks(tracksDocument);
 
         const meta = {
           page: parseInteger(metaDocument?.page),

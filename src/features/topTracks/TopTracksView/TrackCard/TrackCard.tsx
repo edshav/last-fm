@@ -2,16 +2,17 @@ import { FC } from 'react';
 import { Link } from 'react-router-dom';
 import { ExternalLink } from 'components/ExternalLink/ExternalLink';
 import { usePrefetch } from 'features/artist/api/artistApi';
+import { TracksImageSize } from 'features/topTracks/types';
 import classes from './classes.module.css';
 
 type Props = {
   title: string | null;
   artistName: string;
-  imageSrc?: string | null;
+  imageSet: Record<TracksImageSize, string>;
   href: string | null;
 };
 
-export const TrackCard: FC<Props> = ({ title, artistName, imageSrc, href }) => {
+export const TrackCard: FC<Props> = ({ title, artistName, imageSet, href }) => {
   const prefetchArtist = usePrefetch('artistGetInfo');
 
   const onPrefetchArtist = () => prefetchArtist({ artistName });
@@ -28,11 +29,13 @@ export const TrackCard: FC<Props> = ({ title, artistName, imageSrc, href }) => {
         </Link>
         <span className={classes.track}>{title}</span>
       </header>
-      {imageSrc ? (
-        <main>
-          <img className={classes.image} src={imageSrc} alt={title ?? ''} />
-        </main>
-      ) : null}
+      <main>
+        <picture>
+          <source media="(max-width: 768px)" srcSet={imageSet.large} />
+          <source media="(min-width: 769px)" srcSet={imageSet.extralarge} />
+          <img className={classes.image} src={imageSet.extralarge} alt={title ?? ''} />
+        </picture>
+      </main>
       <footer className={classes.footer}>
         {href ? (
           <ExternalLink href={href} className={classes.externalLink}>
