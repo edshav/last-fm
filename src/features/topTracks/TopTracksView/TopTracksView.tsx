@@ -21,7 +21,7 @@ export const TopTracksView: FC = () => {
 
   return (
     <Loader isLoading={isLoading} isError={isError} error={error}>
-      <div className={classes.container}>
+      <ul className={classes.container}>
         {tracks?.map(({ artist, image, title }, index) => (
           <TrackCard
             key={index}
@@ -31,7 +31,7 @@ export const TopTracksView: FC = () => {
             imageSrc={image}
           />
         )) ?? null}
-      </div>
+      </ul>
       {paginationView}
     </Loader>
   );

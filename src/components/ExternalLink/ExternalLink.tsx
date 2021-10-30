@@ -5,10 +5,10 @@ type Props = {
   className?: string;
 };
 
-export const ExternalLink: FC<Props> = ({ href, className }) => {
+export const ExternalLink: FC<Props> = ({ href, className, children }) => {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
-      Learn more
+      {children}
     </a>
   );
 };

@@ -1,0 +1,22 @@
+.tagsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tag {
+  border: solid 1px;
+  border-color: var(--color-secondary);
+  border-radius: 3px;
+  color: var(--color-black);
+  display: inline-block;
+  padding: 6px 15px 6px;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.tag:hover {
+  border-color: var(--color-primary);
+}

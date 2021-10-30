@@ -17,7 +17,7 @@ export const TrackCard: FC<Props> = ({ title, artistName, imageSrc, href }) => {
   const onPrefetchArtist = () => prefetchArtist({ artistName });
 
   return (
-    <div className={classes.card}>
+    <li className={classes.card}>
       <header className={classes.header}>
         <Link
           className={classes.artistLink}
@@ -28,7 +28,11 @@ export const TrackCard: FC<Props> = ({ title, artistName, imageSrc, href }) => {
         </Link>
         <span className={classes.track}>{title}</span>
       </header>
-      {imageSrc ? <img className={classes.image} src={imageSrc} alt={title ?? ''} /> : null}
+      {imageSrc ? (
+        <main>
+          <img className={classes.image} src={imageSrc} alt={title ?? ''} />
+        </main>
+      ) : null}
       <footer className={classes.footer}>
         {href ? (
           <ExternalLink href={href} className={classes.externalLink}>
@@ -36,6 +40,6 @@ export const TrackCard: FC<Props> = ({ title, artistName, imageSrc, href }) => {
           </ExternalLink>
         ) : null}
       </footer>
-    </div>
+    </li>
   );
 };

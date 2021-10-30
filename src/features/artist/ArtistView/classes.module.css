@@ -1,0 +1,8 @@
+.artistContainer {
+  display: flex;
+  gap: 3rem;
+}
+
+.name {
+  font-size: 3rem;
+}

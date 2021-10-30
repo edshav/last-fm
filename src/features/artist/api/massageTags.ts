@@ -1,7 +1,9 @@
 import { Tag, TagDocument } from '../types';
 
-export const massageTags = (tagsDocument: TagDocument[] | undefined): Tag[] =>
-  tagsDocument?.map(({ name, url }) => ({
-    name: name ?? null,
-    url: url ?? null,
-  })) ?? [];
+export const massageTags = (tagsDocument: TagDocument[] | undefined): Tag[] => {
+  if (!tagsDocument) return [];
+  return tagsDocument.reduce((acc: Tag[], { name, url }) => {
+    if (!name || !url) return acc;
+    return [...acc, { name, url }];
+  }, []);
+};
