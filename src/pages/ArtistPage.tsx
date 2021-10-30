@@ -1,5 +1,7 @@
+import { ArtistView } from 'features/artist/ArtistView/ArtistView';
+
 const ArtistPage = () => {
-  return <div>ArtistPage</div>;
+  return <ArtistView />;
 };
 
 export default ArtistPage;

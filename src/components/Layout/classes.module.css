@@ -22,6 +22,7 @@
   padding: calc(var(--header-height) + 24px) var(--padding-x-layout) 24px;
   display: flex;
   justify-content: center;
+  flex: 1;
 }
 
 .footer {

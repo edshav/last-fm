@@ -2,9 +2,9 @@ import { emptySplitLastFmApi } from 'services/lastFm';
 import { ArtistGetInfoArg, ArtistGetInfoDocument, ArtistGetInfoResult } from '../types';
 import { massageTags } from './massageTags';
 
-const topTracksApi = emptySplitLastFmApi.injectEndpoints({
+const artistApi = emptySplitLastFmApi.injectEndpoints({
   endpoints: (build) => ({
-    chartGetTopTracks: build.query<ArtistGetInfoResult, ArtistGetInfoArg>({
+    artistGetInfo: build.query<ArtistGetInfoResult, ArtistGetInfoArg>({
       query: ({ artistName }) => ({
         method: 'GET',
         params: { method: 'artist.getinfo', artist: artistName },
@@ -31,4 +31,4 @@ const topTracksApi = emptySplitLastFmApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useChartGetTopTracksQuery } = topTracksApi;
+export const { useArtistGetInfoQuery } = artistApi;
