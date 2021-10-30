@@ -2,6 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .tag {
@@ -16,7 +17,9 @@
   text-overflow: ellipsis;
   vertical-align: middle;
   white-space: nowrap;
+  transition: border-color, 0.2s ease-out;
 }
 .tag:hover {
   border-color: var(--color-primary);
+  color: var(--color-black);
 }

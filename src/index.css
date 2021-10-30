@@ -146,5 +146,10 @@ body {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: var(--color-primary);
+  transition: color, 0.2s ease-out;
+}
+
+a:hover {
+  color: var(--color-secondary);
 }

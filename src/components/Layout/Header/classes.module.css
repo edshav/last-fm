@@ -14,14 +14,7 @@
 
 .link {
   font-size: 1.4rem;
-  text-decoration: none;
-  color: var(--color-primary);
   font-weight: bold;
-  transition: color 0.2s ease-out;
-}
-
-.link:hover {
-  color: var(--color-secondary);
 }
 
 .nav {

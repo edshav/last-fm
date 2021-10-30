@@ -15,11 +15,6 @@ export type Tag = {
   url: string;
 };
 
-export type Bio = {
-  summary: string | null;
-  content: string | null;
-};
-
 export type ArtistDocument = {
   name?: string;
   mbid?: string;
@@ -53,7 +48,7 @@ export type Artist = {
   name: string;
   image: string | null;
   tags: Tag[];
-  bio: Bio;
+  bio: string | null;
 };
 
 export type ArtistGetInfoArg = {

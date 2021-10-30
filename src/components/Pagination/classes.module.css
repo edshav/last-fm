@@ -14,7 +14,7 @@
   border: 1px solid;
   border-color: var(--color-primary);
   border-radius: 4px;
-  transition: all 0.2s;
+  transition: background-color 0.2s;
 }
 
 .arrow:hover {

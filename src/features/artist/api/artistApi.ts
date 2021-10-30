@@ -18,10 +18,7 @@ const artistApi = emptySplitLastFmApi.injectEndpoints({
           name: artistDocument.name,
           image: artistDocument.image?.[4]['#text'] ?? null,
           tags: massageTags(artistDocument.tags?.tag),
-          bio: {
-            summary: artistDocument.bio?.summary ?? null,
-            content: artistDocument.bio?.content ?? null,
-          },
+          bio: artistDocument.bio?.content ?? null,
         };
 
         return { artist };
