@@ -1,7 +1,6 @@
-import { emptySplitLastFmApi } from 'services/lastFm';
-import { TrackSearchArg, SearchResultsDocument, SearchTrackResult } from '../types';
-import { massageMeta } from './utils/massageMeta';
-import { massageResults } from './utils/massageResults';
+import { emptySplitLastFmApi } from 'services/lastFm/lastFm';
+import { TrackSearchArg, SearchTrackResult } from '../types';
+import { trackSearchTransform } from './trackSearchTransform/trackSearchTransform';
 
 const trackSearchApi = emptySplitLastFmApi.injectEndpoints({
   endpoints: (build) => ({
@@ -11,16 +10,7 @@ const trackSearchApi = emptySplitLastFmApi.injectEndpoints({
         params: { method: 'track.search', track, artist, limit, page },
       }),
 
-      transformResponse: (baseQueryReturnValue: SearchResultsDocument | undefined) => {
-        const { results: resultsDocument } = baseQueryReturnValue ?? {};
-        const itemsPerPage = resultsDocument?.['opensearch:itemsPerPage'];
-        const startPage = resultsDocument?.['opensearch:Query']?.startPage;
-        const totalResults = resultsDocument?.['opensearch:totalResults'];
-
-        const results = massageResults(resultsDocument?.trackmatches?.track);
-        const meta = massageMeta({ itemsPerPage, startPage, totalResults });
-        return { results, meta };
-      },
+      transformResponse: trackSearchTransform,
     }),
   }),
   overrideExisting: false,

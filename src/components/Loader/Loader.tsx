@@ -25,9 +25,9 @@ export const Loader: FC<Props> = ({ children, isLoading, isError, error, hasData
       </div>
     );
 
-  if (isError) return <div>{errorMessage}</div>;
+  if (isError) return <div className={classes.loaderContainer}>{errorMessage}</div>;
 
-  if (!hasData) return <div>No data</div>;
+  if (!hasData) return <div className={classes.loaderContainer}>No data</div>;
 
   return <>{children}</>;
 };

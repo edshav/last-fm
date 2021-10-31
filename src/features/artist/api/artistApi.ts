@@ -1,7 +1,6 @@
-import { emptySplitLastFmApi } from 'services/lastFm';
-import { ArtistGetInfoArg, ArtistGetInfoDocument, ArtistGetInfoResult } from '../types';
-import { massageImages } from './utils/massageImages';
-import { massageTags } from './utils/massageTags';
+import { emptySplitLastFmApi } from 'services/lastFm/lastFm';
+import { ArtistGetInfoArg, ArtistGetInfoResult } from '../types';
+import { artistGetInfoTransform } from './artistGetInfoTransform/artistGetInfoTransform';
 
 const artistApi = emptySplitLastFmApi.injectEndpoints({
   endpoints: (build) => ({
@@ -10,20 +9,7 @@ const artistApi = emptySplitLastFmApi.injectEndpoints({
         method: 'GET',
         params: { method: 'artist.getinfo', artist: artistName },
       }),
-
-      transformResponse: (baseQueryReturnValue: ArtistGetInfoDocument | undefined) => {
-        const artistDocument = baseQueryReturnValue?.artist;
-        if (!artistDocument?.name) return { artist: null };
-
-        const artist = {
-          name: artistDocument.name,
-          imageSet: massageImages(artistDocument.image),
-          tags: massageTags(artistDocument.tags?.tag),
-          bio: artistDocument.bio?.content ?? null,
-        };
-
-        return { artist };
-      },
+      transformResponse: artistGetInfoTransform,
     }),
   }),
   overrideExisting: false,

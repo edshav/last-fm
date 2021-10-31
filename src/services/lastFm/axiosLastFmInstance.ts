@@ -1,5 +1,6 @@
 import axios from 'axios';
-import { baseURL } from 'utils/constants';
+
+const baseURL = 'https://ws.audioscrobbler.com/2.0/';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 

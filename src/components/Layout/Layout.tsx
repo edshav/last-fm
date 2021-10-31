@@ -4,7 +4,7 @@ import { Header } from 'components/Layout/Header/Header';
 import { Container } from './Container/Container';
 import classes from './classes.module.css';
 
-const title = 'Last FM Artists';
+const title = 'last.fm artists';
 const footerText = 'TIT';
 
 const sections = [

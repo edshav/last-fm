@@ -9,7 +9,7 @@ import { useDebouncedValue } from 'hooks/useDebouncedValue';
 import { SearchInput } from './SearchInput/SearchInput';
 import { SearchResultList } from './SearchResultList/SearchResultList';
 import { InitialText } from './SearchHeading/SearchHeading';
-import { usePushSearchQuery } from '../usePushSearchQuery';
+import { usePushSearchQuery } from './hooks/usePushSearchQuery';
 
 export const TrackSearchView: FC = () => {
   const { page: pageFromUrl, query: queryFromUrl } = useSearchParams(['page', 'query']);
