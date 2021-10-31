@@ -11,3 +11,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### prefetching data when hovering over the pagination button or artist name to improve UX;
 
 ### manage query parameters in the browser address bar so you can bookmark
+
+Live: https://last-fm-ten.vercel.app/
