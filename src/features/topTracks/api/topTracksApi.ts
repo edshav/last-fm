@@ -16,4 +16,4 @@ const topTracksApi = emptySplitLastFmApi.injectEndpoints({
   overrideExisting: false,
 });
 
-export const { useChartGetTopTracksQuery } = topTracksApi;
+export const { useChartGetTopTracksQuery, usePrefetch } = topTracksApi;
