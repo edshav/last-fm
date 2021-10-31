@@ -14,10 +14,10 @@ export const massageTracks = (tracksDocument: TrackDocument[] | undefined): Trac
         });
       },
       {
-        small: '',
-        medium: '',
-        large: '',
-        extralarge: '',
+        small: 'public/img/small.webp',
+        medium: '/img/medium.webp',
+        large: '/img/large.webp',
+        extralarge: '/img/extraLarge.webp',
       }
     ),
   }));

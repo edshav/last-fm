@@ -7,7 +7,7 @@
 
 .tag {
   border: solid 1px;
-  border-color: var(--color-secondary);
+  border-color: var(--color-primary-100);
   border-radius: 3px;
   color: var(--color-black);
   display: inline-block;
@@ -20,6 +20,6 @@
   transition: border-color, 0.2s ease-out;
 }
 .tag:hover {
-  border-color: var(--color-primary);
+  border-color: var(--color-primary-200);
   color: var(--color-black);
 }

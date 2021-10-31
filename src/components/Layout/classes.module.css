@@ -10,7 +10,7 @@
   right: 0;
   left: 0;
   border-bottom: solid 1px var(--color-black);
-  height: var(--header-height);
+  height: var(--height-header);
   background-color: var(--color-gray-100);
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@
 }
 
 .main {
-  padding: calc(var(--header-height) + 24px) var(--padding-x-layout) 24px;
+  padding: calc(var(--height-header) + 24px) var(--padding-x-layout) 24px;
   display: flex;
   justify-content: center;
   flex: 1;
@@ -28,7 +28,7 @@
 .footer {
   margin-top: auto;
   background-color: var(--color-black);
-  color: var(--color-secondary);
+  color: var(--color-primary-100);
   display: flex;
   align-items: center;
   justify-content: center;

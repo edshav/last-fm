@@ -6,5 +6,5 @@ type Props = {
 };
 
 export const Footer: FC<Props> = ({ text }) => {
-  return <footer className={classes.container}>{text}</footer>;
+  return <div className={classes.container}>{text}</div>;
 };

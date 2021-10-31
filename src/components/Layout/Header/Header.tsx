@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
+import { HeaderNav } from '../HeaderNav/HeaderNav';
 import classes from './classes.module.css';
 
 type Props = {
@@ -16,13 +17,7 @@ export const Header: FC<Props> = ({ sections, title }) => {
       <h1 className={classes.title}>
         <Link to="/">{title}</Link>
       </h1>
-      <nav className={classes.nav}>
-        {sections.map(({ title, url }) => (
-          <Link className={classes.link} key={url} to={url}>
-            {title}
-          </Link>
-        ))}
-      </nav>
+      <HeaderNav sections={sections} />
     </div>
   );
 };

@@ -9,7 +9,8 @@ import { useDebouncedValue } from 'hooks/useDebouncedValue';
 import { SearchInput } from './SearchInput/SearchInput';
 import { SearchResultList } from './SearchResultList/SearchResultList';
 import { InitialText } from './SearchHeading/SearchHeading';
-import { usePushSearchQuery } from '../usePushSearchQuery';
+import { usePushSearchQuery } from './hooks/usePushSearchQuery';
+import { usePrefetchSearchTracks } from './hooks/usePrefetchSearchTracks';
 
 export const TrackSearchView: FC = () => {
   const { page: pageFromUrl, query: queryFromUrl } = useSearchParams(['page', 'query']);
@@ -22,12 +23,14 @@ export const TrackSearchView: FC = () => {
     ? { track: queryFromUrl, page: parseInteger(pageFromUrl) ?? undefined }
     : skipToken;
   const { data, isLoading, isFetching, isError, error } = useTrackSearchQuery(trackSearchArg);
+  const { onPrefetchTrackSearch } = usePrefetchSearchTracks(queryFromUrl);
+
   const results = data?.results;
   const { page, totalPages } = data?.meta ?? {};
 
   const paginationView =
     page && totalPages && totalPages > 1 ? (
-      <Pagination page={page} totalPages={totalPages} />
+      <Pagination currentPage={page} totalPages={totalPages} onPrefetch={onPrefetchTrackSearch} />
     ) : null;
 
   const hasData = !!results?.length || !queryFromUrl || isFetching;

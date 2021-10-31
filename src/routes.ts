@@ -1,4 +1,4 @@
-import { lazy, LazyExoticComponent } from 'react';
+import { ComponentType, lazy, LazyExoticComponent } from 'react';
 
 const HomePage = lazy(() => import('pages/HomePage'));
 const ArtistPage = lazy(() => import('pages/ArtistPage'));
@@ -7,7 +7,7 @@ const NotFoundPage = lazy(() => import('pages/NotFoundPage'));
 
 export const routes: {
   path: string;
-  Component: LazyExoticComponent<() => JSX.Element>;
+  Component: LazyExoticComponent<ComponentType<any>>;
 }[] = [
   {
     path: '/',

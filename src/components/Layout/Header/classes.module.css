@@ -18,14 +18,5 @@
 
 .title a:hover {
   color: var(--color-black);
-}
-
-.link {
-  font-size: 1.4rem;
-  font-weight: bold;
-}
-
-.nav {
-  display: flex;
-  gap: 20px;
+  text-shadow: 1px 1px 1px var(--color-primary-200), -1px -1px 1px var(--color-primary-200);
 }

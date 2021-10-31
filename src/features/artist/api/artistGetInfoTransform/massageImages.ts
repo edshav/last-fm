@@ -8,10 +8,10 @@ export const massageImages = (images: ArtistImagesDocument): Record<ArtistImageS
       });
     },
     {
-      small: '',
-      medium: '',
-      large: '',
-      extralarge: '',
-      mega: '',
+      small: 'public/img/small.webp',
+      medium: '/img/medium.webp',
+      large: '/img/large.webp',
+      extralarge: '/img/extraLarge.webp',
+      mega: '/img/mega.webp',
     }
   );

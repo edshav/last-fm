@@ -1,5 +1,5 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import { emptySplitLastFmApi } from 'services/lastFm';
+import { emptySplitLastFmApi } from 'services/lastFm/lastFm';
 
 export const store = configureStore({
   reducer: {

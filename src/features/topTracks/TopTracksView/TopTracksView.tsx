@@ -4,36 +4,31 @@ import { Loader } from 'components/Loader/Loader';
 import { useSearchParams } from 'hooks/useSearchParams';
 import { parseInteger } from 'utils/parseInteger';
 import { useChartGetTopTracksQuery } from '../api/topTracksApi';
-import { TrackCard } from './TrackCard/TrackCard';
-import classes from './classes.module.css';
+import { TrackCardList } from './TrackCardList/TrackCardList';
+import { usePrefetchTopTracks } from './hooks/usePrefetchTopTracks';
 
 export const TopTracksView: FC = () => {
   const { page: currentPage } = useSearchParams(['page']);
   const { data, isLoading, isError, error } = useChartGetTopTracksQuery({
     page: parseInteger(currentPage) ?? undefined,
   });
+  const { onPrefetchChartTopTracks } = usePrefetchTopTracks();
 
   const tracks = data?.tracks;
   const { page, totalPages } = data?.meta ?? {};
 
   const paginationView =
     page && totalPages && totalPages > 1 ? (
-      <Pagination page={page} totalPages={totalPages} />
+      <Pagination
+        currentPage={page}
+        totalPages={totalPages}
+        onPrefetch={onPrefetchChartTopTracks}
+      />
     ) : null;
 
   return (
     <Loader isLoading={isLoading} isError={isError} error={error} hasData={!!data?.tracks?.length}>
-      <ul className={classes.container}>
-        {tracks?.map(({ artist, imageSet, title }, index) => (
-          <TrackCard
-            key={index}
-            title={title}
-            artistName={artist.name}
-            href={artist.url}
-            imageSet={imageSet}
-          />
-        )) ?? null}
-      </ul>
+      {tracks ? <TrackCardList tracks={tracks} /> : null}
       {paginationView}
     </Loader>
   );

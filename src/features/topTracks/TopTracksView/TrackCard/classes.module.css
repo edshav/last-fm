@@ -61,12 +61,12 @@
   line-height: 1.4rem;
   text-transform: uppercase;
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--color-primary-200);
   transition: color 0.2s ease-out;
 }
 
 .externalLink:hover {
-  color: var(--color-secondary);
+  color: var(--color-primary-100);
 }
 
 .artistLink {
@@ -84,5 +84,5 @@
 }
 
 .artistLink:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-200);
 }

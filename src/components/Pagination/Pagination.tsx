@@ -4,20 +4,37 @@ import classes from './classes.module.css';
 import { PaginationArrow } from './PaginationArrow';
 
 type Props = {
-  page: number;
+  currentPage: number;
   totalPages: number;
+  onPrefetch: (page: number) => void;
 };
 
-export const Pagination: FC<Props> = ({ page, totalPages }) => {
-  const hRefs = usePagination({ page, totalPages });
+export const Pagination: FC<Props> = ({ currentPage, totalPages, onPrefetch }) => {
+  const hRefs = usePagination({ currentPage, totalPages });
 
   if (!hRefs) return null;
-  const { nextPageHref, prevPageHref } = hRefs;
+  const { nextPageHref, prevPageHref, prevPage, nextPage } = hRefs;
+
+  const onPrefetchPrev = prevPage
+    ? () => {
+        onPrefetch(prevPage);
+      }
+    : undefined;
+
+  const onPrefetchNext = nextPage
+    ? () => {
+        onPrefetch(nextPage);
+      }
+    : undefined;
 
   return (
     <div className={classes.container}>
-      <PaginationArrow href={prevPageHref}>&larr;</PaginationArrow>
-      <PaginationArrow href={nextPageHref}>&rarr;</PaginationArrow>
+      <PaginationArrow href={prevPageHref} onHover={onPrefetchPrev}>
+        &larr;
+      </PaginationArrow>
+      <PaginationArrow href={nextPageHref} onHover={onPrefetchNext}>
+        &rarr;
+      </PaginationArrow>
     </div>
   );
 };
