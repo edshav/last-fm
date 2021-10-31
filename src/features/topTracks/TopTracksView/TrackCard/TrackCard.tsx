@@ -39,7 +39,7 @@ export const TrackCard: FC<Props> = ({ title, artistName, imageSet, href }) => {
       <footer className={classes.footer}>
         {href ? (
           <ExternalLink href={href} className={classes.externalLink}>
-            Learn more
+            Read&nbsp;more on&nbsp;Last.fm
           </ExternalLink>
         ) : null}
       </footer>

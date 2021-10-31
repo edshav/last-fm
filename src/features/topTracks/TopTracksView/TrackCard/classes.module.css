@@ -53,12 +53,12 @@
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  letter-spacing: 0.01071em;
-  color: var(--color-gray-200);
+  color: var(--color-gray-150);
   display: block;
 }
 
 .externalLink {
+  line-height: 1.4rem;
   text-transform: uppercase;
   text-decoration: none;
   color: var(--color-primary);
@@ -75,7 +75,7 @@
   font-weight: 400;
   font-size: 0.875rem;
   line-height: 1.43;
-  letter-spacing: 0.01071em;
+  letter-spacing: 1px;
   transition: color 0.2s ease-out;
 }
 
@@ -84,5 +84,5 @@
 }
 
 .artistLink:hover {
-  color: var(--color-gray-200);
+  color: var(--color-primary);
 }
