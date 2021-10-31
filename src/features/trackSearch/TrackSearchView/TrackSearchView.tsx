@@ -9,13 +9,15 @@ import { useDebounce } from 'hooks/useDebounce';
 import { SearchInput } from './SearchInput/SearchInput';
 import { SearchResultList } from './SearchResultList/SearchResultList';
 import { InitialText } from './InitialText/InitialText';
+import { usePushSearchQuery } from '../usePushSearchQuery';
 
 export const TrackSearchView: FC = () => {
-  const { page: currentPage } = useSearchParams(['page']);
-  const { value, onChange, debouncedValue: debouncedSearchQuery } = useDebounce(300);
+  const { page: pageFromUrl, query: queryFromUrl } = useSearchParams(['page', 'query']);
+  const { value, onChange, debouncedValue } = useDebounce(300, queryFromUrl);
+  usePushSearchQuery({ nextQuery: debouncedValue });
 
-  const trackSearchArg = debouncedSearchQuery
-    ? { track: debouncedSearchQuery, page: parseInteger(currentPage) ?? undefined }
+  const trackSearchArg = queryFromUrl
+    ? { track: queryFromUrl, page: parseInteger(pageFromUrl) ?? undefined }
     : skipToken;
   const { data, isLoading, isFetching, isError, error } = useTrackSearchQuery(trackSearchArg);
   const results = data?.results;
@@ -24,21 +26,18 @@ export const TrackSearchView: FC = () => {
   const paginationView =
     page && totalPages ? <Pagination page={page} totalPages={totalPages} /> : null;
 
-  const hasData = !!results?.length || !debouncedSearchQuery || isFetching;
+  const hasData = !!results?.length || !queryFromUrl || isFetching;
 
   return (
     <>
+      <InitialText />
       <SearchInput value={value} onChange={onChange} />
-      {debouncedSearchQuery ? (
-        <>
-          <Loader isLoading={isLoading} isError={isError} error={error} hasData={hasData}>
-            <SearchResultList searchTrackList={results} />
-          </Loader>
-          {paginationView}
-        </>
-      ) : (
-        <InitialText />
-      )}
+      <>
+        <Loader isLoading={isLoading} isError={isError} error={error} hasData={hasData}>
+          <SearchResultList searchTrackList={results} />
+        </Loader>
+        {paginationView}
+      </>
     </>
   );
 };
