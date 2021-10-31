@@ -7,11 +7,12 @@ import classes from './classes.module.css';
 type Props = {
   isLoading: boolean;
   isError: boolean;
+  hasData: boolean;
   error: LastFmError | SerializedError | undefined;
   children: ReactNode;
 };
 
-export const Loader: FC<Props> = ({ children, isLoading, isError, error }) => {
+export const Loader: FC<Props> = ({ children, isLoading, isError, error, hasData }) => {
   const errorMessage = parseError(error);
 
   if (isLoading)
@@ -23,7 +24,10 @@ export const Loader: FC<Props> = ({ children, isLoading, isError, error }) => {
         </div>
       </div>
     );
-  if (isError) return <>{errorMessage}</>;
+
+  if (isError) return <div>{errorMessage}</div>;
+
+  if (!hasData) return <div>No data</div>;
 
   return <>{children}</>;
 };

@@ -20,7 +20,7 @@ export const TopTracksView: FC = () => {
     page && totalPages ? <Pagination page={page} totalPages={totalPages} /> : null;
 
   return (
-    <Loader isLoading={isLoading} isError={isError} error={error}>
+    <Loader isLoading={isLoading} isError={isError} error={error} hasData={!!data?.tracks?.length}>
       <ul className={classes.container}>
         {tracks?.map(({ artist, imageSet, title }, index) => (
           <TrackCard

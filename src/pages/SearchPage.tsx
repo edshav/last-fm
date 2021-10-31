@@ -1,5 +1,7 @@
+import { TrackSearchView } from 'features/trackSearch/TrackSearchView/TrackSearchView';
+
 const SearchPage = () => {
-  return <div>SearchPage</div>;
+  return <TrackSearchView />;
 };
 
 export default SearchPage;

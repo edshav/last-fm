@@ -14,7 +14,7 @@ export const ArtistView: FC = () => {
   const { bio, imageSet, name, tags } = data?.artist ?? {};
 
   return (
-    <Loader isLoading={isLoading} isError={isError} error={error}>
+    <Loader isLoading={isLoading} isError={isError} error={error} hasData={!!data?.artist}>
       <div>
         {imageSet ? <ArtistImage imageSet={imageSet} name={name} /> : null}
 
