@@ -1,17 +1,31 @@
 import { useEffect } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
-export const usePushSearchQuery = ({ nextQuery }: { nextQuery: string }): void => {
+export const usePushSearchQuery = ({
+  nextQuery,
+  prevQuery,
+}: {
+  nextQuery: string;
+  prevQuery: string;
+}): void => {
   const location = useLocation();
   const history = useHistory();
 
   useEffect(() => {
+    if (nextQuery === prevQuery) return;
+
+    function pushParams() {
+      history.push(`?${params.toString()}`);
+    }
+
     const params = new URLSearchParams(location.search);
+    params.delete('page');
+
     if (nextQuery) {
       params.set('query', nextQuery);
-    } else {
-      params.delete('query');
+      return pushParams();
     }
-    history.push(`?${params.toString()}`);
-  }, [history, location.search, nextQuery]);
+    params.delete('query');
+    pushParams();
+  }, [history, location.search, nextQuery, prevQuery]);
 };

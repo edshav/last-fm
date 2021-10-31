@@ -11,8 +11,7 @@ export const SearchResultList: FC<Props> = ({ searchTrackList }) => {
     <ul>
       {searchTrackList.map(({ artist, name }) => (
         <li key={name + artist}>
-          <span>{name}</span>
-          <span>{artist}</span>
+          <span>{name}</span> - <span>{artist}</span>
         </li>
       ))}
     </ul>

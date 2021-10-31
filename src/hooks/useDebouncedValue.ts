@@ -1,6 +1,6 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
-export function useDebounce(
+export function useDebouncedValue(
   delay: number,
   initialValue?: string
 ): {
@@ -17,7 +17,7 @@ export function useDebounce(
 
   useEffect(() => {
     const handler = setTimeout(() => {
-      setDebouncedValue(value);
+      setDebouncedValue(value.trim().replace(/\s\s+/g, ' '));
     }, delay);
     return () => {
       clearTimeout(handler);

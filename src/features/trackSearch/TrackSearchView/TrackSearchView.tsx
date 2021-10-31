@@ -5,7 +5,7 @@ import { useTrackSearchQuery } from '../api/trackSearchApi';
 import { parseInteger } from 'utils/parseInteger';
 import { Pagination } from 'components/Pagination/Pagination';
 import { Loader } from 'components/Loader/Loader';
-import { useDebounce } from 'hooks/useDebounce';
+import { useDebouncedValue } from 'hooks/useDebouncedValue';
 import { SearchInput } from './SearchInput/SearchInput';
 import { SearchResultList } from './SearchResultList/SearchResultList';
 import { InitialText } from './InitialText/InitialText';
@@ -13,8 +13,8 @@ import { usePushSearchQuery } from '../usePushSearchQuery';
 
 export const TrackSearchView: FC = () => {
   const { page: pageFromUrl, query: queryFromUrl } = useSearchParams(['page', 'query']);
-  const { value, onChange, debouncedValue } = useDebounce(300, queryFromUrl);
-  usePushSearchQuery({ nextQuery: debouncedValue });
+  const { value, onChange, debouncedValue } = useDebouncedValue(300, queryFromUrl);
+  usePushSearchQuery({ nextQuery: debouncedValue, prevQuery: queryFromUrl });
 
   const trackSearchArg = queryFromUrl
     ? { track: queryFromUrl, page: parseInteger(pageFromUrl) ?? undefined }
