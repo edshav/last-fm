@@ -1,3 +1,5 @@
+import { Meta } from 'types';
+
 export type TracksImageSize = 'small' | 'medium' | 'large' | 'extralarge';
 
 type TrackImageDocument<T extends TracksImageSize> = {
@@ -10,13 +12,6 @@ type TracksMetaDocument = {
   perPage?: string | null; // "50",
   totalPages?: string | null; // "580674",
   total?: string | null; // "29033686"
-};
-
-type TracksMeta = {
-  page: number | null;
-  perPage: number | null;
-  totalPages: number | null;
-  total: number | null;
 };
 
 export type TrackDocument = {
@@ -60,7 +55,7 @@ export type ChartGetTopTracksDocument = {
 };
 export type ChartGetTopTracksResult = {
   tracks?: Track[];
-  meta?: TracksMeta;
+  meta?: Meta;
 };
 export type ChartGetTopTracksArg = {
   page?: number; // defaults to 1
