@@ -1,5 +1,6 @@
-import { SearchTrack } from 'features/trackSearch/types';
 import { FC } from 'react';
+import { SearchTrack } from 'features/trackSearch/types';
+import classes from './classes.module.css';
 
 type Props = {
   searchTrackList: SearchTrack[] | undefined;
@@ -8,12 +9,21 @@ type Props = {
 export const SearchResultList: FC<Props> = ({ searchTrackList }) => {
   if (!searchTrackList) return null;
   return (
-    <ul>
-      {searchTrackList.map(({ artist, name }) => (
-        <li key={name + artist}>
-          <span>{name}</span> - <span>{artist}</span>
-        </li>
-      ))}
-    </ul>
+    <table className={classes.table}>
+      <thead>
+        <tr>
+          <th>track</th>
+          <th>artist</th>
+        </tr>
+      </thead>
+      <tbody>
+        {searchTrackList.map(({ artist, name }, index) => (
+          <tr key={name + artist + index}>
+            <td>{name}</td>
+            <td>{artist}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
   );
 };

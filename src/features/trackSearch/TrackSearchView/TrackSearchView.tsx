@@ -8,7 +8,7 @@ import { Loader } from 'components/Loader/Loader';
 import { useDebouncedValue } from 'hooks/useDebouncedValue';
 import { SearchInput } from './SearchInput/SearchInput';
 import { SearchResultList } from './SearchResultList/SearchResultList';
-import { InitialText } from './InitialText/InitialText';
+import { InitialText } from './SearchHeading/SearchHeading';
 import { usePushSearchQuery } from '../usePushSearchQuery';
 
 export const TrackSearchView: FC = () => {
@@ -24,7 +24,9 @@ export const TrackSearchView: FC = () => {
   const { page, totalPages } = data?.meta ?? {};
 
   const paginationView =
-    page && totalPages ? <Pagination page={page} totalPages={totalPages} /> : null;
+    page && totalPages && totalPages > 1 ? (
+      <Pagination page={page} totalPages={totalPages} />
+    ) : null;
 
   const hasData = !!results?.length || !queryFromUrl || isFetching;
 

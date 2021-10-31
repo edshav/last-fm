@@ -17,7 +17,9 @@ export const TopTracksView: FC = () => {
   const { page, totalPages } = data?.meta ?? {};
 
   const paginationView =
-    page && totalPages ? <Pagination page={page} totalPages={totalPages} /> : null;
+    page && totalPages && totalPages > 1 ? (
+      <Pagination page={page} totalPages={totalPages} />
+    ) : null;
 
   return (
     <Loader isLoading={isLoading} isError={isError} error={error} hasData={!!data?.tracks?.length}>

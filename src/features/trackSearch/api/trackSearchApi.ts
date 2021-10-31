@@ -6,7 +6,7 @@ import { massageResults } from './utils/massageResults';
 const trackSearchApi = emptySplitLastFmApi.injectEndpoints({
   endpoints: (build) => ({
     trackSearch: build.query<SearchTrackResult, TrackSearchArg>({
-      query: ({ track, artist, limit, page }) => ({
+      query: ({ track, artist, limit = 20, page = 1 }) => ({
         method: 'GET',
         params: { method: 'track.search', track, artist, limit, page },
       }),

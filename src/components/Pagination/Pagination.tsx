@@ -12,7 +12,6 @@ export const Pagination: FC<Props> = ({ page, totalPages }) => {
   const hRefs = usePagination({ page, totalPages });
 
   if (!hRefs) return null;
-
   const { nextPageHref, prevPageHref } = hRefs;
 
   return (
