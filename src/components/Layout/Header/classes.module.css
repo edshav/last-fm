@@ -18,5 +18,5 @@
 
 .title a:hover {
   color: var(--color-black);
-  text-shadow: 1px 1px 1px var(--color-primary), -1px -1px 1px var(--color-primary);
+  text-shadow: 1px 1px 1px var(--color-primary-200), -1px -1px 1px var(--color-primary-200);
 }

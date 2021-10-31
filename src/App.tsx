@@ -2,7 +2,7 @@ import { Layout } from 'components/Layout/Layout';
 import { Suspense } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { routes } from 'routes';
-import './index.css';
+import './global.css';
 
 function App() {
   return (

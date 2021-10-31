@@ -4,7 +4,7 @@
 }
 
 .table tr th {
-  background-color: var(--color-secondary);
+  background-color: var(--color-primary-100);
   padding: 0.4rem 0;
 }
 
