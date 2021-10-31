@@ -1,6 +1,6 @@
 import { useLocation } from 'react-router-dom';
 
-type HookReturns = Record<string, string>;
+type HookReturns = Record<string, string | null>;
 
 export const useSearchParams = (paramNames: string[]): HookReturns => {
   const location = useLocation();

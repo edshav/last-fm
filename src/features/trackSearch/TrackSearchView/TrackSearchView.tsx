@@ -13,6 +13,8 @@ import { usePushSearchQuery } from '../usePushSearchQuery';
 
 export const TrackSearchView: FC = () => {
   const { page: pageFromUrl, query: queryFromUrl } = useSearchParams(['page', 'query']);
+  console.log({ pageFromUrl, queryFromUrl });
+
   const { value, onChange, debouncedValue } = useDebouncedValue(300, queryFromUrl);
   usePushSearchQuery({ nextQuery: debouncedValue, prevQuery: queryFromUrl });
 

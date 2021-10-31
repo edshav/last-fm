@@ -6,10 +6,11 @@ export const usePushSearchQuery = ({
   prevQuery,
 }: {
   nextQuery: string;
-  prevQuery: string;
+  prevQuery: string | null;
 }): void => {
   const location = useLocation();
   const history = useHistory();
+  console.log({ nextQuery, prevQuery });
 
   useEffect(() => {
     if (nextQuery === prevQuery) return;

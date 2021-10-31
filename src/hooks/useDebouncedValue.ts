@@ -2,14 +2,14 @@ import { ChangeEvent, useEffect, useState } from 'react';
 
 export function useDebouncedValue(
   delay: number,
-  initialValue?: string
+  initialValue: string | null
 ): {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   debouncedValue: string;
 } {
   const [value, setValue] = useState(initialValue ?? '');
-  const [debouncedValue, setDebouncedValue] = useState('');
+  const [debouncedValue, setDebouncedValue] = useState(initialValue ?? '');
 
   function onChange(e: ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value);
