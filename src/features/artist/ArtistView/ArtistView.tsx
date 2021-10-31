@@ -1,27 +1,24 @@
 import { FC } from 'react';
-import { useParams } from 'react-router-dom';
-import { Loader } from 'components/Loader/Loader';
-import { useArtistGetInfoQuery } from '../api/artistApi';
 import { TagListView } from './TagListView/TagListView';
 import { ContentView } from './ContentView/ContentView';
 import { ArtistImage } from './ArtistImage/ArtistImage';
 import classes from './classes.module.css';
+import { Artist } from '../types';
 
-export const ArtistView: FC = () => {
-  const { artistName } = useParams<{ artistName: string }>();
+type Props = {
+  artist: Artist | null | undefined;
+};
 
-  const { data, isLoading, error, isError } = useArtistGetInfoQuery({ artistName });
-  const { bio, imageSet, name, tags } = data?.artist ?? {};
+export const ArtistView: FC<Props> = ({ artist }) => {
+  if (!artist) return null;
+  const { bio, imageSet, name, tags } = artist;
 
   return (
-    <Loader isLoading={isLoading} isError={isError} error={error} hasData={!!data?.artist}>
-      <div>
-        {imageSet ? <ArtistImage imageSet={imageSet} name={name} /> : null}
-
-        <h1 className={classes.name}>{name}</h1>
-        {tags ? <TagListView tags={tags} /> : null}
-        {bio ? <ContentView dirtyHtml={bio} /> : null}
-      </div>
-    </Loader>
+    <div>
+      <ArtistImage imageSet={imageSet} name={name} />
+      <h1 className={classes.name}>{name}</h1>
+      <TagListView tags={tags} />
+      {bio ? <ContentView dirtyHtml={bio} /> : null}
+    </div>
   );
 };

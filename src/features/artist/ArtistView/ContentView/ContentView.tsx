@@ -7,7 +7,5 @@ type Props = {
 };
 
 export const ContentView: FC<Props> = ({ dirtyHtml }) => {
-  console.log(dirtyHtml);
-
   return <DangerouslySetInnerHTML className={classes.content} dirtyHtml={dirtyHtml} />;
 };
