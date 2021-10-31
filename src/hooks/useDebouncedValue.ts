@@ -1,8 +1,8 @@
 import { ChangeEvent, useEffect, useState } from 'react';
 
 export function useDebouncedValue(
-  delay: number,
-  initialValue: string | null
+  initialValue: string | null,
+  delay: number = 400
 ): {
   value: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
