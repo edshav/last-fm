@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  border-bottom: solid 1px var(--color-black);
+  height: var(--header-height);
+  background-color: var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-x-layout);
+}
+
+.main {
+  padding: calc(var(--header-height) + 24px) var(--padding-x-layout) 24px;
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.footer {
+  margin-top: auto;
+  background-color: var(--color-black);
+  color: var(--color-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 var(--padding-x-layout);
+}

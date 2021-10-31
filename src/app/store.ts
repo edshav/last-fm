@@ -1,10 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { emptySplitLastFmApi } from 'services/lastFm';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    [emptySplitLastFmApi.reducerPath]: emptySplitLastFmApi.reducer,
   },
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(emptySplitLastFmApi.middleware),
 });
 
 export type AppDispatch = typeof store.dispatch;

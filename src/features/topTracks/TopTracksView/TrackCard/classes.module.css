@@ -1,0 +1,88 @@
+.card {
+  background-color: rgb(18, 18, 18);
+  color: rgb(255, 255, 255);
+  transition: box-shadow 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  border-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 1px -1px, rgba(0, 0, 0, 0.14) 0px 1px 1px 0px,
+    rgba(0, 0, 0, 0.12) 0px 1px 3px 0px;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.05));
+  overflow: hidden;
+  width: 345px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 1rem;
+  min-height: 60px;
+}
+
+.image {
+  display: block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center top;
+  object-fit: cover;
+  width: 200px;
+  height: 200px;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 345px;
+  }
+
+  .image {
+    width: 345px;
+    height: 345px;
+  }
+}
+
+.footer {
+  padding: 1rem;
+  text-align: center;
+  margin-top: auto;
+}
+
+.track {
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  color: var(--color-gray-150);
+  display: block;
+}
+
+.externalLink {
+  line-height: 1.4rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.2s ease-out;
+}
+
+.externalLink:hover {
+  color: var(--color-secondary);
+}
+
+.artistLink {
+  text-decoration: none;
+  color: var(--color-white);
+  font-weight: 400;
+  font-size: 0.875rem;
+  line-height: 1.43;
+  letter-spacing: 1px;
+  transition: color 0.2s ease-out;
+}
+
+.artistLink::after {
+  content: ' →';
+}
+
+.artistLink:hover {
+  color: var(--color-primary);
+}
