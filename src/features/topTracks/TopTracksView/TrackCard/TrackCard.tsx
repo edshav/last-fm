@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import { ExternalLink } from 'components/ExternalLink/ExternalLink';
+import { ExternalLink } from 'components/ExternalLink';
 import { usePrefetch } from 'features/artist/api/artistApi';
 import { TracksImageSize } from 'features/topTracks/types';
 import classes from './classes.module.css';

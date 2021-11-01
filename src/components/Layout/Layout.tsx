@@ -1,8 +1,7 @@
-import { FC } from 'react-router/node_modules/@types/react';
-import { Footer } from 'components/Layout/Footer/Footer';
-import { Header } from 'components/Layout/Header/Header';
-import { Container } from './Container/Container';
-import classes from './classes.module.css';
+import { FC } from 'react';
+import { styled } from '@stitches/react';
+import { HeaderInner } from 'components/Layout/components/HeaderInner';
+import { Container } from './components/Container';
 
 const title = 'last.fm artists';
 const footerText = 'TIT';
@@ -20,20 +19,63 @@ const sections = [
 
 export const Layout: FC = ({ children }) => {
   return (
-    <div className={classes.container}>
-      <header className={classes.header}>
+    <Wrapper>
+      <Header>
         <Container>
-          <Header sections={sections} title={title} />
+          <HeaderInner sections={sections} title={title} />
         </Container>
-      </header>
-      <main className={classes.main}>
+      </Header>
+      <Main>
         <Container>{children}</Container>
-      </main>
-      <footer className={classes.footer}>
+      </Main>
+      <Footer>
         <Container>
-          <Footer text={footerText} />
+          <FooterText>{footerText}</FooterText>
         </Container>
-      </footer>
-    </div>
+      </Footer>
+    </Wrapper>
   );
 };
+
+const Wrapper = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  minHeight: '100vh',
+});
+
+const Header = styled('header', {
+  position: 'fixed',
+  top: 0,
+  right: 0,
+  left: 0,
+  borderBottom: 'solid 1px $hiContrast',
+  height: '$heightHeader',
+  backgroundColor: '$gray200',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '0 $paddingXLayout',
+});
+
+const Main = styled('main', {
+  padding: 'calc($sizes$heightHeader + $5) $sizes$paddingXLayout $5',
+  display: 'flex',
+  justifyContent: 'center',
+  flex: 1,
+});
+
+const Footer = styled('footer', {
+  marginTop: 'auto',
+  backgroundColor: '$hiContrast',
+  color: '$primary200',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  padding: '0 $paddingXLayout',
+});
+
+const FooterText = styled('div', {
+  display: 'flex',
+  justifyContent: 'flex-end',
+  padding: '$6 0',
+});

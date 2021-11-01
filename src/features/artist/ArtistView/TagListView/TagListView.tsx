@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { ExternalLink } from 'components/ExternalLink/ExternalLink';
+import { ExternalLink } from 'components/ExternalLink';
 import { Tag } from 'features/artist/types';
 import classes from './classes.module.css';
 

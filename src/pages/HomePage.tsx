@@ -1,4 +1,4 @@
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from 'components/Loader';
 import { useChartGetTopTracksQuery } from 'features/topTracks/api/topTracksApi';
 import { usePrefetchTopTracks } from 'features/topTracks/TopTracksView/hooks/usePrefetchTopTracks';
 import { TopTracksView } from 'features/topTracks/TopTracksView/TopTracksView';

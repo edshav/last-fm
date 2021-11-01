@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { styled } from 'styles/stitches.config';
 import { usePagination } from './usePagination';
-import classes from './classes.module.css';
 import { PaginationArrow } from './PaginationArrow';
 
 type Props = {
@@ -28,13 +28,20 @@ export const Pagination: FC<Props> = ({ currentPage, totalPages, onPrefetch }) =
     : undefined;
 
   return (
-    <div className={classes.container}>
+    <Container>
       <PaginationArrow href={prevPageHref} onHover={onPrefetchPrev}>
         &larr;
       </PaginationArrow>
       <PaginationArrow href={nextPageHref} onHover={onPrefetchNext}>
         &rarr;
       </PaginationArrow>
-    </div>
+    </Container>
   );
 };
+
+const Container = styled('div', {
+  marginTop: '$6',
+  display: 'flex',
+  justifyContent: 'center',
+  gap: '$2',
+});

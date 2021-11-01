@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { Link } from 'react-router-dom';
-import classes from './classes.module.css';
+import { styled } from 'styles/stitches.config';
 
 type Props = {
   sections: ReadonlyArray<{
@@ -11,12 +11,22 @@ type Props = {
 
 export const HeaderNav: FC<Props> = ({ sections }) => {
   return (
-    <nav className={classes.nav}>
+    <Nav>
       {sections.map(({ title, url }) => (
-        <Link className={classes.link} key={url} to={url}>
+        <StyledLink key={url} to={url}>
           {title}
-        </Link>
+        </StyledLink>
       ))}
-    </nav>
+    </Nav>
   );
 };
+
+const StyledLink = styled(Link, {
+  fontSize: '$6',
+  fontWeight: '$3',
+});
+
+const Nav = styled('nav', {
+  display: 'flex',
+  gap: '$4',
+});
