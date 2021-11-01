@@ -12,7 +12,7 @@ const ArtistPage = () => {
 
   return (
     <Loader isLoading={isLoading} isError={isError} error={error} hasData={!!artist}>
-      <ArtistView artist={artist} />;
+      <ArtistView artist={artist} />
     </Loader>
   );
 };
