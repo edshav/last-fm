@@ -21,7 +21,6 @@ export const TrackCard: FC<Props> = ({ title, artistName, imageSet, href }) => {
     <CardContainer
       screen={{
         '@bp2': 'wide',
-        '@bp3': 'wider',
       }}
     >
       <CardHeader>
@@ -61,9 +60,6 @@ const CardContainer = styled('li', {
     screen: {
       wide: {
         width: 350,
-      },
-      wider: {
-        width: 400,
       },
     },
   },

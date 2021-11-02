@@ -13,7 +13,13 @@ export const HeaderNav: FC<Props> = ({ sections }) => {
   return (
     <Nav>
       {sections.map(({ title, url }) => (
-        <StyledLink key={url} to={url}>
+        <StyledLink
+          key={url}
+          to={url}
+          screen={{
+            '@bp2': 'wide',
+          }}
+        >
           {title}
         </StyledLink>
       ))}
@@ -22,11 +28,25 @@ export const HeaderNav: FC<Props> = ({ sections }) => {
 };
 
 const StyledLink = styled(Link, {
-  fontSize: '$6',
+  fontSize: '$3',
   fontWeight: '$3',
+  variants: {
+    screen: {
+      wide: {
+        fontSize: '$6',
+      },
+    },
+  },
 });
 
 const Nav = styled('nav', {
   display: 'flex',
-  gap: '$4',
+  gap: '$2',
+  variants: {
+    screen: {
+      wide: {
+        gap: '$4',
+      },
+    },
+  },
 });
