@@ -72,7 +72,7 @@ const CardContainer = styled('li', {
 const CardHeader = styled('header', {
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flexStart',
+  alignItems: 'flex-start',
   justifyContent: 'center',
   padding: '$3',
   minHeight: '60px',
@@ -104,7 +104,6 @@ const LastFmLink = styled(ExternalLink, {
 });
 
 const ArtistLink = styled(Link, {
-  textDecoration: 'none',
   color: '$loContrast',
   fontWeight: 400,
   fontSize: '$3',
