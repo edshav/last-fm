@@ -1,7 +1,7 @@
 import { FC } from 'react';
+import { styled } from 'styles/stitches.config';
 import { Track } from 'features/topTracks/types';
-import classes from './classes.module.css';
-import { TrackCard } from '../TrackCard/TrackCard';
+import { TrackCard } from './TrackCard';
 
 type Props = {
   tracks: Track[];
@@ -9,7 +9,7 @@ type Props = {
 
 export const TrackCardList: FC<Props> = ({ tracks }) => {
   return (
-    <ul className={classes.container}>
+    <Container>
       {tracks?.map(({ artist, imageSet, title }, index) => (
         <TrackCard
           key={index}
@@ -19,6 +19,13 @@ export const TrackCardList: FC<Props> = ({ tracks }) => {
           imageSet={imageSet}
         />
       )) ?? null}
-    </ul>
+    </Container>
   );
 };
+
+const Container = styled('ul', {
+  display: 'flex',
+  flexWrap: 'wrap',
+  gap: '$5',
+  justifyContent: 'space-evenly',
+});

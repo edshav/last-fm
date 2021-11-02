@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { styled } from 'styles/stitches.config';
-import { TagListView } from './TagListView/TagListView';
-import { ContentView } from './ContentView/ContentView';
-import { ArtistImage } from './ArtistImage/ArtistImage';
+import { TagListView } from './components/TagListView';
+import { ContentView } from './components/ContentView';
+import { ArtistImage } from './components/ArtistImage';
 import { Artist } from '../types';
 
 type Props = {

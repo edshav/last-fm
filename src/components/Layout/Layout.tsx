@@ -58,7 +58,7 @@ const Header = styled('header', {
 });
 
 const Main = styled('main', {
-  padding: 'calc($sizes$heightHeader + $5) $sizes$paddingXLayout $5',
+  padding: 'calc($heightHeader + $5) $paddingXLayout $5',
   display: 'flex',
   justifyContent: 'center',
   flex: 1,

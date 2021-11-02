@@ -8,9 +8,9 @@ import { Loader } from 'components/Loader';
 import { useTrackSearchQuery } from 'features/trackSearch/api/trackSearchApi';
 import { usePushSearchQuery } from 'features/trackSearch/TrackSearchView/hooks/usePushSearchQuery';
 import { usePrefetchSearchTracks } from 'features/trackSearch/TrackSearchView/hooks/usePrefetchSearchTracks';
-import { SearchInput } from 'features/trackSearch/TrackSearchView/SearchInput/SearchInput';
-import { InitialText } from 'features/trackSearch/TrackSearchView/SearchHeading/SearchHeading';
-import { SearchResultList } from 'features/trackSearch/TrackSearchView/SearchResultList/SearchResultList';
+import { SearchInput } from 'features/trackSearch/TrackSearchView/SearchInput';
+import { InitialText } from 'features/trackSearch/TrackSearchView/SearchHeading';
+import { SearchResultList } from 'features/trackSearch/TrackSearchView/SearchResultList';
 
 const SearchPage = () => {
   useDocumentTitle('Search');

@@ -1,7 +1,10 @@
 import { createStitches } from '@stitches/react';
 import type * as Stitches from '@stitches/react';
 
-const stitchesConfig = {
+const heightHeader = '80px';
+const paddingXLayout = '48px';
+
+export const stitchesConfig = {
   theme: {
     colors: {
       hiContrast: 'hsl(206,10%,5%)',
@@ -16,6 +19,9 @@ const stitchesConfig = {
       gray400: '#A0AEC0',
       gray500: '#718096',
       gray600: '#4A5568',
+      gray700: '#2D3748',
+      gray800: '#1A202C',
+      gray900: '#171923',
 
       purple100: '#E9D8FD',
       purple200: '#D6BCFA',
@@ -45,6 +51,8 @@ const stitchesConfig = {
       4: '20px',
       5: '25px',
       6: '35px',
+      heightHeader,
+      paddingXLayout,
     },
     sizes: {
       1: '5px',
@@ -53,8 +61,8 @@ const stitchesConfig = {
       4: '20px',
       5: '25px',
       6: '35px',
-      heightHeader: '80px',
-      paddingXLayout: '48px',
+      heightHeader,
+      paddingXLayout,
     },
     fontSizes: {
       1: '12px',
@@ -103,13 +111,20 @@ const stitchesConfig = {
     },
   },
   utils: {
-    mx: (value: Stitches.PropertyValue<'marginLeft'>) => ({
-      marginLeft: value,
-      marginRight: value,
+    p: (value: Stitches.PropertyValue<'padding'>) => ({
+      padding: value,
     }),
-    my: (value: Stitches.PropertyValue<'marginTop'>) => ({
-      marginTop: value,
-      marginBottom: value,
+    pt: (value: Stitches.PropertyValue<'paddingTop'>) => ({
+      paddingTop: value,
+    }),
+    pr: (value: Stitches.PropertyValue<'paddingRight'>) => ({
+      paddingRight: value,
+    }),
+    pb: (value: Stitches.PropertyValue<'paddingBottom'>) => ({
+      paddingBottom: value,
+    }),
+    pl: (value: Stitches.PropertyValue<'paddingLeft'>) => ({
+      paddingLeft: value,
     }),
     px: (value: Stitches.PropertyValue<'paddingLeft'>) => ({
       paddingLeft: value,
@@ -119,13 +134,42 @@ const stitchesConfig = {
       paddingTop: value,
       paddingBottom: value,
     }),
+
+    m: (value: Stitches.PropertyValue<'margin'>) => ({
+      margin: value,
+    }),
+    mt: (value: Stitches.PropertyValue<'marginTop'>) => ({
+      marginTop: value,
+    }),
+    mr: (value: Stitches.PropertyValue<'marginRight'>) => ({
+      marginRight: value,
+    }),
+    mb: (value: Stitches.PropertyValue<'marginBottom'>) => ({
+      marginBottom: value,
+    }),
+    ml: (value: Stitches.PropertyValue<'marginLeft'>) => ({
+      marginLeft: value,
+    }),
+    mx: (value: Stitches.PropertyValue<'marginLeft'>) => ({
+      marginLeft: value,
+      marginRight: value,
+    }),
+    my: (value: Stitches.PropertyValue<'marginTop'>) => ({
+      marginTop: value,
+      marginBottom: value,
+    }),
   },
   media: {
+    bp0: '(max-width: 479px)', // mobileL
     bp1: '(min-width: 480px)', // mobileL
     bp2: '(min-width: 768px)', // tablet
     bp3: '(min-width: 1024px)', // laptop
     bp4: '(min-width: 1440px)', // laptopL
     bp5: '(min-width: 2560px)', // 4k
+    motion: '(prefers-reduced-motion)',
+    hover: '(any-hover: hover)',
+    dark: '(prefers-color-scheme: dark)',
+    light: '(prefers-color-scheme: light)',
   },
 };
 
