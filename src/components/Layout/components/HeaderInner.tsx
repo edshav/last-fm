@@ -14,7 +14,11 @@ type Props = {
 export const HeaderInner: FC<Props> = ({ sections, title }) => {
   return (
     <Container>
-      <Heading>
+      <Heading
+        screen={{
+          '@bp2': 'wide',
+        }}
+      >
         <Link to="/">{title}</Link>
       </Heading>
       <HeaderNav sections={sections} />
@@ -29,9 +33,19 @@ const Container = styled('div', {
 });
 
 const Heading = styled('h1', {
-  fontSize: '$6',
-  lineHeight: '$6',
+  fontSize: '$2',
+  lineHeight: '$2',
   fontWeight: '$3',
   letterSpacing: '$widest',
-  color: '$hiContrast',
+  '& > a': {
+    color: '$hiContrast',
+  },
+  variants: {
+    screen: {
+      wide: {
+        fontSize: '$6',
+        lineHeight: '$6',
+      },
+    },
+  },
 });
