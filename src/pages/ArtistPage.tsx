@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useDocumentTitle } from 'hooks/useDocumentTitle';
-import { Loader } from 'components/Loader/Loader';
+import { Loader } from 'components/Loader';
 import { ArtistView } from 'features/artist/ArtistView/ArtistView';
 import { useArtistGetInfoQuery } from 'features/artist/api/artistApi';
 

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDocumentTitle } from 'hooks/useDocumentTitle';
 import { Pagination } from 'components/Pagination/Pagination';
-import { TrackCardList } from './TrackCardList/TrackCardList';
+import { TrackCardList } from './components/TrackCardList';
 import { Track } from '../types';
 
 type Props = {
