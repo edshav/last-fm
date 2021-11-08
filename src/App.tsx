@@ -1,6 +1,6 @@
 import { Layout } from 'components/Layout/Layout';
 import { Suspense } from 'react';
-import { Switch, Route, Redirect } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { routes } from 'routes';
 import { globalStyles } from 'styles/globalStyles';
 
@@ -8,21 +8,20 @@ function App() {
   globalStyles();
   return (
     <Layout>
-      <Switch>
+      <Routes>
         {routes.map(({ path, Component }) => (
           <Route
             key={path}
-            exact
             path={path}
-            render={() => (
+            element={
               <Suspense fallback={null}>
                 <Component />
               </Suspense>
-            )}
+            }
           />
         ))}
-        <Redirect to="/404" />
-      </Switch>
+        <Route path="*" element={<Navigate to="/404" replace />} />
+      </Routes>
     </Layout>
   );
 }
