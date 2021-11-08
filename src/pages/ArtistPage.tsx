@@ -5,7 +5,7 @@ import { ArtistView } from 'features/artist/ArtistView/ArtistView';
 import { useArtistGetInfoQuery } from 'features/artist/api/artistApi';
 
 const ArtistPage = () => {
-  const { artistName } = useParams<{ artistName: string }>();
+  const artistName = useParams().artistName ?? '';
   useDocumentTitle(artistName);
   const { data, isLoading, error, isError } = useArtistGetInfoQuery({ artistName });
   const artist = data?.artist;

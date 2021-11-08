@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const usePushSearchQuery = ({
   nextQuery,
@@ -9,13 +9,13 @@ export const usePushSearchQuery = ({
   prevQuery: string | null;
 }): void => {
   const location = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (nextQuery === prevQuery) return;
 
     function pushParams() {
-      history.push(`?${params.toString()}`);
+      navigate(`?${params.toString()}`);
     }
 
     const params = new URLSearchParams(location.search);
@@ -27,5 +27,5 @@ export const usePushSearchQuery = ({
     }
     params.delete('query');
     pushParams();
-  }, [history, location.search, nextQuery, prevQuery]);
+  }, [navigate, location.search, nextQuery, prevQuery]);
 };
