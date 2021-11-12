@@ -23,20 +23,6 @@ export const stitchesConfig = {
       gray800: '#1A202C',
       gray900: '#171923',
 
-      purple100: '#E9D8FD',
-      purple200: '#D6BCFA',
-      purple300: '#B794F4',
-      purple400: '#9F7AEA',
-      purple500: '#805AD5',
-      purple600: '#6B46C1',
-
-      teal100: '#B2F5EA',
-      teal200: '#81E6D9',
-      teal300: '#4FD1C5',
-      teal400: '#38B2AC',
-      teal500: '#319795',
-      teal600: '#2C7A7B',
-
       orange100: '#FEEBC8',
       orange200: '#FBD38D',
       orange300: '#F6AD55',

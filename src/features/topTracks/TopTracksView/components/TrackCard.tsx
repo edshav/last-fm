@@ -34,7 +34,7 @@ export const TrackCard: FC<Props> = ({ title, artistName, imageSet, href }) => {
           <source media={stitchesConfig.media.bp0} srcSet={imageSet.medium} />
           <source media={stitchesConfig.media.bp1} srcSet={imageSet.large} />
           <source media={stitchesConfig.media.bp2} srcSet={imageSet.extralarge} />
-          <Image src={imageSet.large} alt={title ?? ''} />
+          <Image src={imageSet.large} alt={title ?? ''} width="100" height="100" />
         </picture>
       </main>
       <CardFooter>
