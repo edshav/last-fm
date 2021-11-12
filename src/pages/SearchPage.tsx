@@ -9,7 +9,6 @@ import { useTrackSearchQuery } from 'features/trackSearch/api/trackSearchApi';
 import { usePushSearchQuery } from 'features/trackSearch/TrackSearchView/hooks/usePushSearchQuery';
 import { usePrefetchSearchTracks } from 'features/trackSearch/TrackSearchView/hooks/usePrefetchSearchTracks';
 import { SearchInput } from 'features/trackSearch/TrackSearchView/SearchInput';
-import { InitialText } from 'features/trackSearch/TrackSearchView/SearchHeading';
 import { SearchResultList } from 'features/trackSearch/TrackSearchView/SearchResultList';
 
 const SearchPage = () => {
@@ -37,7 +36,6 @@ const SearchPage = () => {
 
   return (
     <>
-      <InitialText />
       <SearchInput value={value} onChange={onChange} />
       <>
         <Loader isLoading={isLoading} isError={isError} error={error} hasData={hasData}>
