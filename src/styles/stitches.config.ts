@@ -12,6 +12,7 @@ export const stitchesConfig = {
 
       primary100: '$orange300',
       primary200: '$orange400',
+      primary300: '$orange600',
 
       gray100: '#EDF2F7',
       gray200: '#E2E8F0',

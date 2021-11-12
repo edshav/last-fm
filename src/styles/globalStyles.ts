@@ -45,10 +45,10 @@ export const globalStyles = globalCss(
     },
     a: {
       textDecoration: 'none',
-      color: '$primary200',
+      color: '$primary300',
       transition: '$1',
       '&:hover': {
-        color: '$primary100',
+        color: '$primary200',
       },
     },
   })

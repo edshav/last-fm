@@ -8,25 +8,27 @@ type Props = {
 
 export const SearchInput: FC<Props> = ({ value, onChange }) => {
   return (
-    <Container>
-      <span>&#128270;</span>
+    <Label>
+      <span>Start typing to get search results:&nbsp;</span>
       <Input value={value} onChange={onChange} />
-    </Container>
+      <span>&#128270;</span>
+    </Label>
   );
 };
 
-const Container = styled('div', {
-  marginTop: '$2',
-});
-
 const Input = styled('input', {
   $$gray: '$gray900',
-
-  ml: '$1',
+  mr: '$1',
   fontSize: '$3',
   lineHeight: '$4',
   color: '$$gray',
   border: '1px solid',
   borderColor: '$$gray',
   padding: '0 $3',
+  width: 200,
+});
+
+const Label = styled('label', {
+  fontSize: '$3',
+  mt: '$3',
 });
